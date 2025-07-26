@@ -63,21 +63,21 @@ with tab1:
 
     st.subheader("1️⃣ Invoer basisgegevens factuur")
 
-    form = st.form("factuurbasis_form")
+    form = st.form("factuurbasis_form", clear_on_submit=True)
     with form:
-        vaste_kosten = st.number_input("💶 Vaste kosten", min_value=0.0, step=100.0, format="%f")
-        variabele_kosten = st.number_input("💶 Variabele kosten", min_value=0.0, step=100.0, format="%f")
+        vaste_kosten = st.number_input("💶 Vaste kosten", min_value=0.0, step=100.0, format="%f", key="vaste_kosten")
+        variabele_kosten = st.number_input("💶 Variabele kosten", min_value=0.0, step=100.0, format="%f", key="variabele_kosten")
 
         st.markdown("---")
         st.markdown("### 🚐 Ritten")
-        ritten_besteld = st.number_input("Aantal bestelde ritten", min_value=0, step=1)
-        ritten_geannuleerd = st.number_input("Aantal geannuleerde ritten", min_value=0, step=1)
-        ritten_loos = st.number_input("Aantal loos gemelde ritten", min_value=0, step=1)
-        ritten_uitgevoerd = st.number_input("Aantal uitgevoerde ritten", min_value=0, step=1)
+        ritten_besteld = st.number_input("Aantal bestelde ritten", min_value=0, step=1, key="ritten_besteld")
+        ritten_geannuleerd = st.number_input("Aantal geannuleerde ritten", min_value=0, step=1, key="ritten_geannuleerd")
+        ritten_loos = st.number_input("Aantal loos gemelde ritten", min_value=0, step=1, key="ritten_loos")
+        ritten_uitgevoerd = st.number_input("Aantal uitgevoerde ritten", min_value=0, step=1, key="ritten_uitgevoerd")
 
         st.markdown("---")
         st.markdown("### 🧭 Routes")
-        aantal_routes = st.number_input("Aantal routes", min_value=0, step=1)
+        aantal_routes = st.number_input("Aantal routes", min_value=0, step=1, key="routes")
 
         submitted = st.form_submit_button("Opslaan")
         if submitted:
